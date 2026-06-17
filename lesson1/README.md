@@ -6,20 +6,21 @@ Bellman expectation updates, Bellman optimality updates, policy iteration, and v
 
 ## Your Task
 
-Open `lesson1/algorithms.py` and implement the four methods below. Each method has a `# TODO` comment with exact steps.
+Open `lesson1/algorithms.py` and implement the four methods below.
 
+- Each method has a `# TODO` comment with exact steps.
 - A deterministic policy assigns probability `1.0` to one action, `0.0` to the rest.
 - Actions: `0` = left, `1` = down, `2` = right, `3` = up.
 
-### Policy Iteration (`PolicyIteration` class)
+```python
+class PolicyIteration:
+    def policy_evaluation(self, env, policy, values) -> ValueFunction: ...
+    def policy_improvement(self, env, values) -> Policy: ...
 
-**`policy_evaluation(env, policy, values) -> ValueFunction`**
-**`policy_improvement(env, values) -> Policy`**
-
-### Value Iteration (`ValueIteration` class)
-
-**`value_update(env, values) -> ValueFunction`**
-**`policy_extraction(env, values) -> Policy`**
+class ValueIteration:
+    def value_update(self, env, values) -> ValueFunction: ...
+    def policy_extraction(self, env, values) -> Policy: ...
+```
 
 ## Verification
 
@@ -39,7 +40,7 @@ uv run python lesson1/main.py --implementation student --algorithm value_iterati
 
 The script saves a policy visualization to `lesson1/outputs/frozen_lake_policy.png`.
 
-**Useful flags:**
+### Useful flags
 
 ```bash
 # Smaller 4x4 grid (easier to debug)
@@ -56,14 +57,14 @@ uv run python lesson1/main.py --implementation student --algorithm policy_iterat
 
 These are available if you need them. You don't have to use all of them.
 
-**`FrozenLakeModel` methods** (the `env` argument):
+`FrozenLakeModel` methods (the `env` argument):
 
 - `env.states()` — all states
 - `env.actions()` — all possible actions
 - `env.non_terminal_states()` — states that are not terminal
 - `env.transitions(state, action)` — list of `(probability, next_state, reward, done)` tuples
 
-**`self` methods** (defined in `base.py`):
+`self` methods (defined in `base.py`):
 
 - `self._action_value(env, state, action, values)` — computes q(s, a) from the Bellman equation
 - `self._deterministic_policy(env, best_actions)` — builds a policy dict from a `{state: best_action}` map
