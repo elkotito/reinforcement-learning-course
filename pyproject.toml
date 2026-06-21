@@ -9,11 +9,13 @@ dependencies = [
     "envpool>=1.2.5",
     "gymnasium[toy-text]>=1.3.0",
     "matplotlib>=3.10.5",
+    "tqdm>=4.67.1",
     "typer>=0.26.7",
 ]
 
 [tool.basedpyright]
 executionEnvironments = [
     { root = "lesson1" },
+    { root = "lesson2" },
 ]
 reportUnusedCallResult = false
